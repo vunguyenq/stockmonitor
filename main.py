@@ -1,5 +1,5 @@
 # curl --location --request POST "https://www.vndirect.com.vn/portal/thong-ke-thi-truong-chung-khoan/lich-su-gia.shtml" --data-urlencode "searchMarketStatisticsView.symbol=VCB" --data-urlencode "strFromDate=30/06/2020" --data-urlencode "strToDate=20/08/2020" > test.html
-# TO DO
+# TODO
 # 1. Incremental reload
 # 2. Get stock list from google sheet instead of txt file - DONE
 # 3. Draw bollinger: SMA20 +-2 std
