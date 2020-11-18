@@ -15,7 +15,6 @@
         ];
         var i;
         for (i = 0; i < raw_data.length; i++) {
-            document.getElementById("demo").innerHTML = 'linechart' + i.toString();
             chart_data = raw_data[i]
             caption = chart_data[0];
             maxY = chart_data[1];
@@ -24,6 +23,7 @@
 
             var options = {
               title: caption,
+              chartArea: {left: 30, top: 20},
               legend: { position: 'bottom' },
               pointsVisible: true,
               hAxis: { gridlines: {count: 12}, ticks: data.getDistinctValues(0)},
@@ -43,7 +43,6 @@
             var chart = new google.visualization.LineChart(document.getElementById('linechart' + i.toString()));
             chart.draw(data, options);
           }
-        document.getElementById("demo2").innerHTML = raw_data[0];
       }
     </script>   
 </head>
