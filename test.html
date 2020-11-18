@@ -22,17 +22,17 @@
           pointsVisible: true,
           hAxis: { gridlines: {count: 12}, ticks: data.getDistinctValues(0)},
           vAxes: {0: {title: '', textStyle: {fontSize: 10}, titleTextStyle: {fontSize : 8}, viewWindow: {min: 106, max:111}}},
-          trendlines: {
-              0: {
-                type: 'linear',
-                color: 'red',
-                lineWidth: 1,
-                opacity: 1.0,
-                showR2: false,
-                pointsVisible: false,
-                visibleInLegend: false
-              }
-            }
+          //trendlines: {
+          //    0: {
+          //      type: 'linear',
+          //      color: 'red',
+          //      lineWidth: 1,
+          //      opacity: 1.0,
+          //      showR2: false,
+          //      pointsVisible: false,
+          //      visibleInLegend: false
+          //   }
+          //  }
         };
 
         var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
