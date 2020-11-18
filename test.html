@@ -9,11 +9,11 @@
       function drawChart() {
         var data = google.visualization.arrayToDataTable([
           ['Date', 'ClosingPrice'],
-          [new Date('2020-11-12'),  107],
-          [new Date('2020-11-13'),  107.4],
-          [new Date('2020-11-16'),  107.1],
-          [new Date('2020-11-17'),  107.6],
-          [new Date('2020-11-18'),  109.4]  
+          [5,  107],
+          [4,  107.4],
+          [3,  107.1],
+          [2,  107.6],
+          [1,  109.4]  
         ]);
 
         var options = {
@@ -22,17 +22,17 @@
           pointsVisible: true,
           hAxis: { gridlines: {count: 12}, ticks: data.getDistinctValues(0)},
           vAxes: {0: {title: '', textStyle: {fontSize: 10}, titleTextStyle: {fontSize : 8}, viewWindow: {min: 106, max:111}}},
-          //trendlines: {
-          //    0: {
-          //      type: 'linear',
-          //      color: 'red',
-          //      lineWidth: 1,
-          //      opacity: 1.0,
-          //      showR2: false,
-          //      pointsVisible: false,
-          //      visibleInLegend: false
-          //   }
-          //  }
+          trendlines: {
+              0: {
+                type: 'linear',
+                color: 'red',
+                lineWidth: 1,
+                opacity: 1.0,
+                showR2: false,
+                pointsVisible: false,
+                visibleInLegend: false
+             }
+            }
         };
 
         var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
