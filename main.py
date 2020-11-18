@@ -87,10 +87,11 @@ if __name__ == "__main__":
         # Update y scale for charts
         min_cell = 'B' + str(start_row)
         min_y = math.floor(df['ClosingPrice'].min()) - 1
-        update_cell(KEY_FILE, SPREADSHEET_NAME, WORKSHEET_CHART_DATA, min_cell, min_y)
+        #update_cell(KEY_FILE, SPREADSHEET_NAME, WORKSHEET_CHART_DATA, min_cell, min_y)
         max_cell = 'C' + str(start_row)
         max_y = math.ceil(df['ClosingPrice'].max()) + 1
-        update_cell(KEY_FILE, SPREADSHEET_NAME, WORKSHEET_CHART_DATA, max_cell, max_y)
+        #update_cell(KEY_FILE, SPREADSHEET_NAME, WORKSHEET_CHART_DATA, max_cell, max_y)
+        update_worksheet(pd.DataFrame([[min_y,max_y]]), KEY_FILE, SPREADSHEET_NAME, WORKSHEET_CHART_DATA, min_cell, max_cell, header = False)
 
         start_row += 8
         
