@@ -22,15 +22,15 @@
           hAxis: { gridlines: {count: 12} },
           vAxes: {0: {title: '', textStyle: {fontSize: 10}, titleTextStyle: {fontSize : 8}, viewWindow: {min: 300, max:1200}}},
           trendlines: {
-              0: {
-                type: 'linear',
-                color: 'red',
-                lineWidth: 1,
-                opacity: 1.0,
-                showR2: false,
-                visibleInLegend: false
-              }
+            0: {
+              type: 'linear',
+              color: 'green',
+              lineWidth: 3,
+              opacity: 0.3,
+              showR2: true,
+              visibleInLegend: true
             }
+          }
         };
 
         var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
