@@ -8,11 +8,11 @@
 
       function drawChart() {
         var data = google.visualization.arrayToDataTable([
-          ['Year', 'Sales'],
-          [2004,  1000],
-          [2005,  1170],
-          [2006,  660],
-          [2007,  1030]
+          ['Date', 'ClosingPrice'],
+          [12/11,  107],
+          [13/11,  107.4],
+          [14/11,  107.1],
+          [15/11,  109.4]
         ]);
 
         var options = {
@@ -20,17 +20,17 @@
           legend: { position: 'bottom' },
           pointsVisible: true,
           hAxis: { gridlines: {count: 12} },
-          vAxes: {0: {title: '', textStyle: {fontSize: 10}, titleTextStyle: {fontSize : 8}, viewWindow: {min: 300, max:1200}}},
+          vAxes: {0: {title: '', textStyle: {fontSize: 10}, titleTextStyle: {fontSize : 8}, viewWindow: {min: 106, max:111}}},
           trendlines: {
-            0: {
-              type: 'linear',
-              color: 'green',
-              lineWidth: 3,
-              opacity: 0.3,
-              showR2: true,
-              visibleInLegend: true
+              0: {
+                type: 'linear',
+                color: 'red',
+                lineWidth: 1,
+                opacity: 1.0,
+                showR2: false,
+                visibleInLegend: false
+              }
             }
-          }
         };
 
         var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
