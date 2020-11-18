@@ -9,10 +9,11 @@
       function drawChart() {
         var data = google.visualization.arrayToDataTable([
           ['Date', 'ClosingPrice'],
-          [12/11,  107],
-          [13/11,  107.4],
-          [14/11,  107.1],
-          [15/11,  109.4]
+          [new Date('2020-11-12'),  107],
+          [new Date('2020-11-13'),  107.4],
+          [new Date('2020-11-16'),  107.1],
+          [new Date('2020-11-17'),  107.6],
+          [new Date('2020-11-18'),  109.4]  
         ]);
 
         var options = {
