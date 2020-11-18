@@ -19,7 +19,13 @@
           title: 'Company Performance',
           curveType: 'function',
           legend: { position: 'bottom' },
-          pointsVisible: true
+          pointsVisible: true,
+          hAxis: {
+                  title: 'Hello',
+                  titleTextStyle: {
+                    color: '#FF0000'
+                  }
+                }  
         };
 
         var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
