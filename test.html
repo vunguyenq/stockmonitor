@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+        var raw_data = [
+          //[Caption, MaxY, MinY, [[header],[row1],[row2]]]
+            ['VNM',106,111,[['Date', 'ClosingPrice'],[-4,  107],[-3,  107.4],[-2,  107.1], [-1,  107.6],[0,  109.4]]],
+            ['FPT',52,55,[['Date', 'ClosingPrice'],[-4,  53.5],[-3,  53.8],[-2,  53.3], [-1,  54],[0,  54]]]
+        ];
+        var i;
+        for (i = 0; i < raw_data.length; i++) {
+            document.getElementById("demo").innerHTML = 'linechart' + i.toString();
+            chart_data = raw_data[i]
+            caption = chart_data[0];
+            maxY = chart_data[1];
+            minY = chart_data[2];
+            var data = google.visualization.arrayToDataTable(chart_data[3]);
+
+            var options = {
+              title: caption,
+              legend: { position: 'bottom' },
+              pointsVisible: true,
+              hAxis: { gridlines: {count: 12}, ticks: data.getDistinctValues(0)},
+              vAxes: {0: {title: '', textStyle: {fontSize: 10}, titleTextStyle: {fontSize : 8}, viewWindow: {min: minY, max: maxY}}},
+              trendlines: {
+                  0: {
+                    type: 'linear',
+                    color: 'red',
+                    lineWidth: 1,
+                    opacity: 1.0,
+                    showR2: false,
+                    pointsVisible: false,
+                    visibleInLegend: false
+                  }
+                }
+            };
+            var chart = new google.visualization.LineChart(document.getElementById('linechart' + i.toString()));
+            chart.draw(data, options);
+          }
+        document.getElementById("demo2").innerHTML = raw_data[0];
+      }
+    </script>   
+</head>
+
+<body>
+
+<h1> Big text </h1>
+<p>Paragraph text</p>
+<p id="linechart0" style="width: 400px; height: 200px"></p>
+<p id="linechart1" style="width: 400px; height: 200px"></p>
+<p id="demo"></p>
+<p id="demo2"></p>
+</body>
+</html>
