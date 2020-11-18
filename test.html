@@ -9,18 +9,18 @@
       function drawChart() {
         var data = google.visualization.arrayToDataTable([
           ['Date', 'ClosingPrice'],
-          ['2020-11-12',  107],
-          ['2020-11-13',  107.4],
-          ['2020-11-16',  107.1],
-          ['2020-11-17',  107.6],
-          ['2020-11-18',  109.4]  
+          [new Date('2020-11-12'),  107],
+          [new Date('2020-11-13'),  107.4],
+          [new Date('2020-11-16'),  107.1],
+          [new Date('2020-11-17'),  107.6],
+          [new Date('2020-11-18'),  109.4]  
         ]);
 
         var options = {
           title: 'Company Performance',
           legend: { position: 'bottom' },
           pointsVisible: true,
-          hAxis: { gridlines: {count: 12} },
+          hAxis: { gridlines: {count: 12}, ticks: data.getDistinctValues(0)},
           vAxes: {0: {title: '', textStyle: {fontSize: 10}, titleTextStyle: {fontSize : 8}, viewWindow: {min: 106, max:111}}},
           trendlines: {
               0: {
