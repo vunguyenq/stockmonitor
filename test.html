@@ -8,11 +8,12 @@
       google.charts.setOnLoadCallback(drawChart);
 
       function drawChart() {
-        var raw_data = [
+        //var raw_data = [
           //[Caption, MaxY, MinY, [[header],[row1],[row2]]]
-            ['VNM',106,111,[['Date', 'ClosingPrice'],[-4,  107],[-3,  107.4],[-2,  107.1], [-1,  107.6],[0,  109.4]]],
-            ['FPT',52,55,[['Date', 'ClosingPrice'],[-4,  53.5],[-3,  53.8],[-2,  53.3], [-1,  54],[0,  54]]]
-        ];
+        //    ['VNM',106,111,[['Date', 'ClosingPrice'],[-4,  107],[-3,  107.4],[-2,  107.1], [-1,  107.6],[0,  109.4]]],
+        //    ['FPT',52,55,[['Date', 'ClosingPrice'],[-4,  53.5],[-3,  53.8],[-2,  53.3], [-1,  54],[0,  54]]]
+        //];
+        var raw_data = [['HPG', 26, 23, [['Date', 'ClosingPrice'], [-4.0, 24.3], [-3.0, 24.15], [-2.0, 24.25], [-1.0, 24.1], [0.0, 24.35]]], ['VNM', 118, 114, [['Date', 'ClosingPrice'], [-4.0, 117.0], [-3.0, 115.6], [-2.0, 115.3], [-1.0, 115.2], [0.0, 115.6]]], ['FPT', 49, 45, [['Date', 'ClosingPrice'], [-4.0, 47.0], [-3.0, 46.85], [-2.0, 46.85], [-1.0, 47.05], [0.0, 47.4]]], ['FRT', 25, 21, [['Date', 'ClosingPrice'], [-4.0, 22.65], [-3.0, 22.95], [-2.0, 23.1], [-1.0, 23.0], [0.0, 23.15]]]];
         var i;
         for (i = 0; i < raw_data.length; i++) {
             chart_data = raw_data[i]
@@ -53,6 +54,9 @@
 <p>Paragraph text</p>
 <p id="linechart0" style="width: 400px; height: 200px"></p>
 <p id="linechart1" style="width: 400px; height: 200px"></p>
+<p id="linechart2" style="width: 400px; height: 200px"></p>
+<p id="linechart3" style="width: 400px; height: 200px"></p>
+
 <p id="demo"></p>
 <p id="demo2"></p>
 </body>
