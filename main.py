@@ -105,11 +105,15 @@ if __name__ == "__main__":
         i+=1
     
     # Create html report from template
+    chart_fromdate = str(df['Date'].min())
+    chart_todate = str(df['Date'].max())
     javascript_linechart_data = str(javascript_linechart_data)
     with open('report_template.html', 'r') as file:
         html_report = file.read()
 
-    html_report = html_report.replace('|CHART_DATA_PLACEHOLDER|',javascript_linechart_data).replace('|CHART_P_TAGS_PLACEHOLDER|',chart_html_p_tags)
+    html_report = html_report.replace('|CHART_DATA_PLACEHOLDER|',javascript_linechart_data)\
+                            .replace('|CHART_P_TAGS_PLACEHOLDER|',chart_html_p_tags)\
+                            .replace('|CHART_FROM_TO_DATE_PLACEHOLDER|','{} - {}'.format(chart_fromdate,chart_todate))
 
     with open('stockreport.html', 'w') as filetowrite:
         filetowrite.write(html_report)
