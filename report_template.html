@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+        var raw_data = |CHART_DATA_PLACEHOLDER|;
+        var i;
+        for (i = 0; i < raw_data.length; i++) {
+            chart_data = raw_data[i]
+            caption = chart_data[0];
+            maxY = chart_data[1];
+            minY = chart_data[2];
+            var data = google.visualization.arrayToDataTable(chart_data[3]);
+
+            var options = {
+              title: caption,
+              chartArea: {left: 30, top: 20},
+              legend: { position: 'bottom' },
+              pointsVisible: true,
+              hAxis: { gridlines: {count: 12}, ticks: data.getDistinctValues(0)},
+              vAxes: {0: {title: '', textStyle: {fontSize: 10}, titleTextStyle: {fontSize : 8}, viewWindow: {min: minY, max: maxY}}},
+              trendlines: {
+                  0: {
+                    type: 'linear',
+                    color: 'red',
+                    lineWidth: 1,
+                    opacity: 1.0,
+                    showR2: false,
+                    pointsVisible: false,
+                    visibleInLegend: false
+                  }
+                }
+            };
+            var chart = new google.visualization.LineChart(document.getElementById('linechart' + i.toString()));
+            chart.draw(data, options);
+          }
+      }
+    </script>   
+</head>
+
+<body>
+
+<h1> Big text </h1>
+<p>Paragraph text</p>
+
+|CHART_P_TAGS_PLACEHOLDER|
+
+<p id="demo"></p>
+<p id="demo2"></p>
+</body>
+</html>
