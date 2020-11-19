@@ -72,6 +72,10 @@ if __name__ == "__main__":
     # Get closing price of last 5 working days for each symbol
     start_row = 1
     clear_worksheet(KEY_FILE, SPREADSHEET_NAME, WORKSHEET_CHART_DATA)
+    # Javascript & html content to fill in html report
+    javascript_linechart_data = []
+    chart_html_p_tags = ''
+    i=0
     # Filter stocks that are marked to track 5 days 
     df_stocks_5days = df_stocks[df_stocks['Track5Days'].apply(lambda x: len(str(x)) > 0)]
     for _, row in df_stocks_5days.iterrows():
@@ -87,13 +91,28 @@ if __name__ == "__main__":
         # Update y scale for charts
         min_cell = 'B' + str(start_row)
         min_y = math.floor(df['ClosingPrice'].min()) - 1
-        #update_cell(KEY_FILE, SPREADSHEET_NAME, WORKSHEET_CHART_DATA, min_cell, min_y)
         max_cell = 'C' + str(start_row)
         max_y = math.ceil(df['ClosingPrice'].max()) + 1
-        #update_cell(KEY_FILE, SPREADSHEET_NAME, WORKSHEET_CHART_DATA, max_cell, max_y)
         update_worksheet(pd.DataFrame([[min_y,max_y]]), KEY_FILE, SPREADSHEET_NAME, WORKSHEET_CHART_DATA, min_cell, max_cell, header = False)
 
         start_row += 8
+
+        # Generate date for HTML report
+        df_chartdata = df[['Date','ClosingPrice']]
+        df_chartdata['Date'] = list(range(-N_LAST_DAYS+1,1))
+        javascript_linechart_data.append([stock, max_y, min_y, [df_chartdata.columns.values.tolist()] + df_chartdata.values.tolist()])
+        chart_html_p_tags += '<p id="linechart{}" style="width: 400px; height: 200px"></p>\n'.format(i)
+        i+=1
+    
+    # Create html report from template
+    javascript_linechart_data = str(javascript_linechart_data)
+    with open('report_template.html', 'r') as file:
+        html_report = file.read()
+
+    html_report = html_report.replace('|CHART_DATA_PLACEHOLDER|',javascript_linechart_data).replace('|CHART_P_TAGS_PLACEHOLDER|',chart_html_p_tags)
+
+    with open('stockreport.html', 'w') as filetowrite:
+        filetowrite.write(html_report)
         
 
 
