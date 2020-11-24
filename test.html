@@ -2,13 +2,37 @@
 <html lang="en">
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<style>
+  .collapsible {
+    background-color: white;
+    color: black;
+    cursor: pointer;
+    padding: 0px;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 20px;
+  }
+  
+  .active, .collapsible:hover {
+    text-decoration: underline;
+  }
+  
+  .content {
+    padding: 0 18px;
+    display: block;
+    overflow: hidden;
+    /*background-color: #f1f1f1;*/
+  }
+  </style>
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script type="text/javascript">
       google.charts.load('current', {'packages':['corechart']});
       google.charts.setOnLoadCallback(drawChart);
 
       function drawChart() {
-        var raw_data = [['VNM', 111, 106, [['Date', 'ClosingPrice'], [-4.0, 107.4], [-3.0, 107.1], [-2.0, 107.6], [-1.0, 109.4], [0.0, 109.7]]], ['FPT', 57, 52, [['Date', 'ClosingPrice'], [-4.0, 53.8], [-3.0, 53.3], [-2.0, 54.0], [-1.0, 54.0], [0.0, 55.1]]], ['FRT', 24, 21, [['Date', 'ClosingPrice'], [-4.0, 22.95], [-3.0, 22.1], [-2.0, 22.45], [-1.0, 22.2], [0.0, 22.6]]], ['PVD', 14, 10, [['Date', 'ClosingPrice'], [-4.0, 11.85], [-3.0, 11.65], [-2.0, 12.3], [-1.0, 12.55], [0.0, 12.7]]], ['TAR', 22, 19, [['Date', 'ClosingPrice'], [-4.0, 20.4], [-3.0, 20.3], [-2.0, 20.2], [-1.0, 20.3], [0.0, 20.4]]]];
+        var raw_data = [['HPG', 39, 33, [['Date', 'ClosingPrice'], [-4.0, 34.6], [-3.0, 35.2], [-2.0, 35.7], [-1.0, 37.5], [0.0, 37.5]]], ['VNM', 112, 108, [['Date', 'ClosingPrice'], [-4.0, 109.4], [-3.0, 109.7], [-2.0, 110.9], [-1.0, 110.6], [0.0, 109.6]]], ['FPT', 57, 53, [['Date', 'ClosingPrice'], [-4.0, 54.0], [-3.0, 55.1], [-2.0, 55.2], [-1.0, 55.9], [0.0, 55.6]]], ['FRT', 24, 21, [['Date', 'ClosingPrice'], [-4.0, 22.2], [-3.0, 22.6], [-2.0, 22.7], [-1.0, 22.4], [0.0, 22.4]]], ['PVD', 14, 11, [['Date', 'ClosingPrice'], [-4.0, 12.55], [-3.0, 12.7], [-2.0, 12.65], [-1.0, 12.6], [0.0, 13.0]]], ['SSI', 20, 17, [['Date', 'ClosingPrice'], [-4.0, 18.4], [-3.0, 18.45], [-2.0, 18.2], [-1.0, 18.7], [0.0, 18.95]]], ['NT2', 25, 21, [['Date', 'ClosingPrice'], [-4.0, 23.0], [-3.0, 23.0], [-2.0, 23.0], [-1.0, 22.9], [0.0, 23.25]]], ['TAR', 23, 19, [['Date', 'ClosingPrice'], [-4.0, 20.3], [-3.0, 20.4], [-2.0, 20.5], [-1.0, 21.2], [0.0, 20.8]]]];
         var i;
         for (i = 0; i < raw_data.length; i++) {
             chart_data = raw_data[i]
@@ -45,16 +69,37 @@
 
 <body>
 
-<h1> Big text </h1>
-<p>Paragraph text</p>
+<h1> Theo dõi danh mục đầu tư </h1>
+<h2 class="collapsible">Giá các cổ phiếu 5 ngày gần nhất</h2>
+<div class="content">
+    <p>18/11 - 24/11</p>
+    <p id="linechart0" style="width: 400px; height: 200px"></p>
+    <p id="linechart1" style="width: 400px; height: 200px"></p>
+    <p id="linechart2" style="width: 400px; height: 200px"></p>
+    <p id="linechart3" style="width: 400px; height: 200px"></p>
+    <p id="linechart4" style="width: 400px; height: 200px"></p>
+    <p id="linechart5" style="width: 400px; height: 200px"></p>
+    <p id="linechart6" style="width: 400px; height: 200px"></p>
+    <p id="linechart7" style="width: 400px; height: 200px"></p>
+</div>
+<h2>Đỉnh giá gần nhất</h2>
 
-<p id="linechart0" style="width: 400px; height: 200px"></p>
-<p id="linechart1" style="width: 400px; height: 200px"></p>
-<p id="linechart2" style="width: 400px; height: 200px"></p>
-<p id="linechart3" style="width: 400px; height: 200px"></p>
-<p id="linechart4" style="width: 400px; height: 200px"></p>
-
-<p id="demo"></p>
-<p id="demo2"></p>
+<script>
+  var coll = document.getElementsByClassName("collapsible");
+  var i;
+  
+  for (i = 0; i < coll.length; i++) {
+    coll[i].addEventListener("click", function() {
+      this.classList.toggle("active");
+      var content = this.nextElementSibling;
+      if (content.style.display === "block") {
+        content.style.display = "none";
+      } else {
+        content.style.display = "block";
+      }
+    });
+  }
+  </script>
+  
 </body>
 </html>
