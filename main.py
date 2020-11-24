@@ -37,8 +37,8 @@ if __name__ == "__main__":
     # Compare latest stock price with nearest peak
     for _, row in df_stocks.iterrows():
         stock = row['Stock']
-        fromdate = row['MonitorFrom']
-        todate = datetime.date.today().strftime('%d/%m/%Y') 
+        fromdate = datetime.datetime.strptime(row['MonitorFrom'], '%d/%m/%Y').strftime('%Y-%m-%d') 
+        todate = datetime.date.today().strftime('%Y-%m-%d') 
         print('Loading stock {} from date {} to date {} ...'.format(stock,fromdate,todate))
         #stock = 'VCB'
         #fromdate = '01/07/2020'
@@ -108,14 +108,14 @@ if __name__ == "__main__":
     chart_fromdate = str(df['Date'].min())
     chart_todate = str(df['Date'].max())
     javascript_linechart_data = str(javascript_linechart_data)
-    with open('report_template.html', 'r') as file:
+    with open('report_template.html', 'r', encoding="utf8") as file:
         html_report = file.read()
 
     html_report = html_report.replace('|CHART_DATA_PLACEHOLDER|',javascript_linechart_data)\
                             .replace('|CHART_P_TAGS_PLACEHOLDER|',chart_html_p_tags)\
                             .replace('|CHART_FROM_TO_DATE_PLACEHOLDER|','{} - {}'.format(chart_fromdate,chart_todate))
 
-    with open('stockreport.html', 'w') as filetowrite:
+    with open('stockreport.html', 'w', encoding="utf8") as filetowrite:
         filetowrite.write(html_report)
         
 

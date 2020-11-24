@@ -3,6 +3,7 @@ from bs4 import BeautifulSoup
 import pandas as pd
 import datetime
 from pandas.tseries.offsets import BDay
+import json
 
 # Get all listed stocks 
 def get_listed_stocks():
@@ -29,51 +30,36 @@ def get_listed_stocks():
 
 # Get closing price per day in a given query period
 def load_price(stockid, fromdate, todate, adjusted = True):
-    #pload = {'searchMarketStatisticsView.symbol':'VCB','strFromDate':'19/07/2020','strToDate':'21/08/2020'}
+    
+    # https://finfo-api.vndirect.com.vn/v4/stock_prices?sort=date&q=code:VNM~date:gte:2020-09-15~date:lte:2020-10-30&size=15&page=1
+    # tested VNM - ok with > 1200 days in a single GET. No need paging for now
+    BASE_URL = 'https://finfo-api.vndirect.com.vn/v4/stock_prices?sort=date&q=code:{}~date:gte:{}~date:lte:{}&size=1000&page=1';
+
+    url = BASE_URL.format(stockid, fromdate, todate)
+
     if(adjusted):
-        price_col = 7 # gia dong cua dieu chinh
+        price_col = 'adClose' # gia dong cua dieu chinh
     else:
-        price_col = 5 # gia dong cua chua dieu chinh
+        price_col = 'close' # gia dong cua chua dieu chinh
 
-    df_price = pd.DataFrame(columns=['date','price'])
-    page_index = 0
+    retry_count = 0
     while(True):
-        page_index += 1
-        pload = {'searchMarketStatisticsView.symbol':stockid,'strFromDate':fromdate,'strToDate':todate, 'pagingInfo.indexPage':page_index}
-        print('     Loading page {}...'.format(page_index))
-        
-        retry_count = 0
-        while(True):
-            try:
-                r = requests.post('https://www.vndirect.com.vn/portal/thong-ke-thi-truong-chung-khoan/lich-su-gia.shtml',data = pload)
-            except:
-                retry_count += 1
-                if(retry_count > 2):
-                    print('Failed to load stock {}, from date {}, to date {}, page {}. Aborted after 3 retries.'.format(stockid, fromdate, todate, page_index))
-                    return None
-                continue
-            break
+        try:
+            r = requests.get(url)
+        except:
+            retry_count += 1
+            if(retry_count > 2):
+                print('Failed to load stock {}, from date {}, to date {}. Aborted after 3 retries.'.format(stockid, fromdate, todate))
+                return None
+            continue
+        break
 
-
-        soup = BeautifulSoup(r.text, 'html.parser')
-        table = soup.findAll('ul', {'class': 'list_tktt lichsugia'})
-        rows = table[0].findAll('li', {'class': ''})
-
-        if(len(rows) == 0):
-            break
-            
-        for row in rows:
-            columns = row.findAll('div')
-            date = datetime.datetime.strptime(columns[0].getText().strip(),'%Y-%m-%d')
-            price = float(columns[price_col].getText().strip()) 
-            df_price.loc[len(df_price)] = [date, price]
-        
-        # Don't load next page if fromdate is captured by the current page
-        fromdate_date = datetime.datetime.strptime(fromdate,'%d/%m/%Y') 
-        previous_working_date = date - BDay(1) # in case fromdate is a weekend date
-        if (date == fromdate_date or previous_working_date < fromdate_date): 
-            break
-
+    # parse JSON response
+    json_data = json.loads(r.text)
+    df_price = pd.DataFrame(json_data['data'])[['date',price_col]]
+    df_price.rename(columns={price_col: 'price'}, inplace=True)
+    df_price['date'] = pd.to_datetime(df_price['date'],format='%Y-%m-%d')
+  
     return df_price.sort_values(by=['date'], ascending=False)
 
 
