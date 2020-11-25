@@ -99,7 +99,7 @@ if __name__ == "__main__":
 
         # Generate date for HTML report
         df_chartdata = df[['Date','ClosingPrice']]
-        df_chartdata['Date'] = list(range(-N_LAST_DAYS+1,1))
+        df_chartdata['Date'] = list(range(max(-len(df_chartdata)+1, -N_LAST_DAYS+1),1))
         javascript_linechart_data.append([stock, max_y, min_y, [df_chartdata.columns.values.tolist()] + df_chartdata.values.tolist()])
         chart_html_p_tags += '<p id="linechart{}" style="width: 400px; height: 200px"></p>\n'.format(i)
         i+=1
