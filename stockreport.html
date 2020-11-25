@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+        var raw_data = [['HPG', 39, 34, [['Date', 'ClosingPrice'], [-4.0, 35.2], [-3.0, 35.7], [-2.0, 37.5], [-1.0, 37.5], [0.0, 35.6]]], ['VNM', 112, 108, [['Date', 'ClosingPrice'], [-4.0, 109.7], [-3.0, 110.9], [-2.0, 110.6], [-1.0, 109.6], [0.0, 110.5]]], ['FPT', 57, 54, [['Date', 'ClosingPrice'], [-4.0, 55.1], [-3.0, 55.2], [-2.0, 55.9], [-1.0, 55.6], [0.0, 55.2]]], ['FRT', 24, 21, [['Date', 'ClosingPrice'], [-4.0, 22.6], [-3.0, 22.7], [-2.0, 22.4], [-1.0, 22.4], [0.0, 22.2]]], ['PVD', 15, 11, [['Date', 'ClosingPrice'], [-4.0, 12.7], [-3.0, 12.65], [-2.0, 12.6], [-1.0, 13.0], [0.0, 13.25]]], ['SSI', 21, 17, [['Date', 'ClosingPrice'], [-4.0, 18.45], [-3.0, 18.2], [-2.0, 18.7], [-1.0, 18.95], [0.0, 19.2]]], ['NT2', 25, 21, [['Date', 'ClosingPrice'], [-4.0, 23.0], [-3.0, 23.0], [-2.0, 22.9], [-1.0, 23.25], [0.0, 23.15]]], ['TAR', 23, 19, [['Date', 'ClosingPrice'], [-4.0, 20.4], [-3.0, 20.5], [-2.0, 21.2], [-1.0, 20.8], [0.0, 20.8]]]];
+        var i;
+        for (i = 0; i < raw_data.length; i++) {
+            chart_data = raw_data[i]
+            caption = chart_data[0];
+            maxY = chart_data[1];
+            minY = chart_data[2];
+            var data = google.visualization.arrayToDataTable(chart_data[3]);
+
+            var options = {
+              title: caption,
+              chartArea: {left: 30, top: 20},
+              legend: { position: 'bottom' },
+              pointsVisible: true,
+              hAxis: { gridlines: {count: 12}, ticks: data.getDistinctValues(0)},
+              vAxes: {0: {title: '', textStyle: {fontSize: 10}, titleTextStyle: {fontSize : 8}, viewWindow: {min: minY, max: maxY}}},
+              trendlines: {
+                  0: {
+                    type: 'linear',
+                    color: 'red',
+                    lineWidth: 1,
+                    opacity: 1.0,
+                    showR2: false,
+                    pointsVisible: false,
+                    visibleInLegend: false
+                  }
+                }
+            };
+            var chart = new google.visualization.LineChart(document.getElementById('linechart' + i.toString()));
+            chart.draw(data, options);
+          }
+      }
+    </script>   
+</head>
+
+<body>
+
+<h1> Theo dõi danh mục đầu tư </h1>
+<h2>Giá các cổ phiếu 5 ngày gần nhất</h2>
+<p>19/11 - 25/11</p>
+<p id="linechart0" style="width: 400px; height: 200px"></p>
+<p id="linechart1" style="width: 400px; height: 200px"></p>
+<p id="linechart2" style="width: 400px; height: 200px"></p>
+<p id="linechart3" style="width: 400px; height: 200px"></p>
+<p id="linechart4" style="width: 400px; height: 200px"></p>
+<p id="linechart5" style="width: 400px; height: 200px"></p>
+<p id="linechart6" style="width: 400px; height: 200px"></p>
+<p id="linechart7" style="width: 400px; height: 200px"></p>
+
+<h2>Đỉnh giá gần nhất</h2>
+</body>
+</html>
