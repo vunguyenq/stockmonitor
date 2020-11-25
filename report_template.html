@@ -2,6 +2,31 @@
 <html lang="en">
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+<style>
+  .collapsible {
+    background-color: white;
+    color: black;
+    cursor: pointer;
+    padding: 0px;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+  }
+  
+  .active, .collapsible:hover {
+    text-decoration: underline;
+  }
+  
+  .content {
+    padding: 0 18px;
+    display: block;
+    overflow: hidden;
+    /*background-color: #f1f1f1;*/
+  }
+  </style>
+
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script type="text/javascript">
       google.charts.load('current', {'packages':['corechart']});
@@ -46,9 +71,33 @@
 <body>
 
 <h1> Theo dõi danh mục đầu tư </h1>
-<h2>Giá các cổ phiếu 5 ngày gần nhất</h2>
-<p>|CHART_FROM_TO_DATE_PLACEHOLDER|</p>
-|CHART_P_TAGS_PLACEHOLDER|
-<h2>Đỉnh giá gần nhất</h2>
+<h2 class="collapsible">Giá các cổ phiếu 5 ngày gần nhất</h2>
+<div class="content">
+  <p>|CHART_FROM_TO_DATE_PLACEHOLDER|</p>
+  |CHART_P_TAGS_PLACEHOLDER|
+</div>
+
+<h2 class="collapsible">Đỉnh giá gần nhất</h2>
+<div class="content">
+
+</div>
+
+<script>
+  var coll = document.getElementsByClassName("collapsible");
+  var i;
+  
+  for (i = 0; i < coll.length; i++) {
+    coll[i].addEventListener("click", function() {
+      this.classList.toggle("active");
+      var content = this.nextElementSibling;
+      if (content.style.display === "block") {
+        content.style.display = "none";
+      } else {
+        content.style.display = "block";
+      }
+    });
+  }
+  </script>
+
 </body>
 </html>
