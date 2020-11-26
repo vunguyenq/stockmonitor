@@ -2,13 +2,38 @@
 <html lang="en">
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+<style>
+  .collapsible {
+    background-color: white;
+    color: black;
+    cursor: pointer;
+    padding: 0px;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+  }
+  
+  .active, .collapsible:hover {
+    text-decoration: underline;
+  }
+  
+  .content {
+    padding: 0 18px;
+    display: block;
+    overflow: hidden;
+    /*background-color: #f1f1f1;*/
+  }
+  </style>
+
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script type="text/javascript">
       google.charts.load('current', {'packages':['corechart']});
       google.charts.setOnLoadCallback(drawChart);
 
       function drawChart() {
-        var raw_data = [['HPG', 39, 34, [['Date', 'ClosingPrice'], [-4.0, 35.2], [-3.0, 35.7], [-2.0, 37.5], [-1.0, 37.5], [0.0, 35.6]]], ['VNM', 112, 108, [['Date', 'ClosingPrice'], [-4.0, 109.7], [-3.0, 110.9], [-2.0, 110.6], [-1.0, 109.6], [0.0, 110.5]]], ['FRT', 24, 21, [['Date', 'ClosingPrice'], [-4.0, 22.6], [-3.0, 22.7], [-2.0, 22.4], [-1.0, 22.4], [0.0, 22.2]]], ['VJC', 120, 112, [['Date', 'ClosingPrice'], [-4.0, 113.7], [-3.0, 118.9], [-2.0, 118.9], [-1.0, 118.0], [0.0, 119.0]]], ['SSI', 21, 17, [['Date', 'ClosingPrice'], [-4.0, 18.45], [-3.0, 18.2], [-2.0, 18.7], [-1.0, 18.95], [0.0, 19.2]]], ['NT2', 25, 21, [['Date', 'ClosingPrice'], [-4.0, 23.0], [-3.0, 23.0], [-2.0, 22.9], [-1.0, 23.25], [0.0, 23.15]]], ['TAR', 23, 19, [['Date', 'ClosingPrice'], [-4.0, 20.4], [-3.0, 20.5], [-2.0, 21.2], [-1.0, 20.8], [0.0, 20.8]]], ['MWG', 115, 109, [['Date', 'ClosingPrice'], [-3.0, 110.8], [-2.0, 113.2], [-1.0, 112.0], [0.0, 112.0]]]];
+        var raw_data = [['HPG', 39, 34, [['Date', 'ClosingPrice'], [-4.0, 35.7], [-3.0, 37.5], [-2.0, 37.5], [-1.0, 35.6], [0.0, 35.1]]], ['VNM', 112, 108, [['Date', 'ClosingPrice'], [-4.0, 110.9], [-3.0, 110.6], [-2.0, 109.6], [-1.0, 110.5], [0.0, 109.9]]], ['FRT', 24, 21, [['Date', 'ClosingPrice'], [-4.0, 22.7], [-3.0, 22.4], [-2.0, 22.4], [-1.0, 22.2], [0.0, 22.2]]], ['VJC', 122, 117, [['Date', 'ClosingPrice'], [-4.0, 118.9], [-3.0, 118.9], [-2.0, 118.0], [-1.0, 119.0], [0.0, 120.1]]], ['SSI', 21, 17, [['Date', 'ClosingPrice'], [-4.0, 18.2], [-3.0, 18.7], [-2.0, 18.95], [-1.0, 19.2], [0.0, 19.15]]], ['NT2', 25, 21, [['Date', 'ClosingPrice'], [-4.0, 23.0], [-3.0, 22.9], [-2.0, 23.25], [-1.0, 23.15], [0.0, 22.95]]], ['TAR', 23, 19, [['Date', 'ClosingPrice'], [-4.0, 20.5], [-3.0, 21.2], [-2.0, 20.8], [-1.0, 20.8], [0.0, 20.6]]], ['MWG', 115, 109, [['Date', 'ClosingPrice'], [-4.0, 110.8], [-3.0, 113.2], [-2.0, 112.0], [-1.0, 112.0], [0.0, 112.8]]]];
         var i;
         for (i = 0; i < raw_data.length; i++) {
             chart_data = raw_data[i]
@@ -46,9 +71,10 @@
 <body>
 
 <h1> Theo dõi danh mục đầu tư </h1>
-<h2>Giá các cổ phiếu 5 ngày gần nhất</h2>
-<p>20/11 - 25/11</p>
-<p id="linechart0" style="width: 400px; height: 200px"></p>
+<h2 class="collapsible">Giá các cổ phiếu 5 ngày gần nhất</h2>
+<div class="content">
+  <p>20/11 - 26/11</p>
+  <p id="linechart0" style="width: 400px; height: 200px"></p>
 <p id="linechart1" style="width: 400px; height: 200px"></p>
 <p id="linechart2" style="width: 400px; height: 200px"></p>
 <p id="linechart3" style="width: 400px; height: 200px"></p>
@@ -57,6 +83,29 @@
 <p id="linechart6" style="width: 400px; height: 200px"></p>
 <p id="linechart7" style="width: 400px; height: 200px"></p>
 
-<h2>Đỉnh giá gần nhất</h2>
+</div>
+
+<h2 class="collapsible">Đỉnh giá gần nhất</h2>
+<div class="content">
+
+</div>
+
+<script>
+  var coll = document.getElementsByClassName("collapsible");
+  var i;
+  
+  for (i = 0; i < coll.length; i++) {
+    coll[i].addEventListener("click", function() {
+      this.classList.toggle("active");
+      var content = this.nextElementSibling;
+      if (content.style.display === "block") {
+        content.style.display = "none";
+      } else {
+        content.style.display = "block";
+      }
+    });
+  }
+  </script>
+
 </body>
 </html>
