@@ -12,7 +12,6 @@
     border: none;
     text-align: left;
     outline: none;
-    font-size: 20px;
   }
   
   .active, .collapsible:hover {
@@ -20,10 +19,33 @@
   }
   
   .content {
-    padding: 0 18px;
+    padding: 0px;
     display: block;
     overflow: hidden;
     /*background-color: #f1f1f1;*/
+  }
+
+  /*TABLE FORMAT;*/
+  .dataframe {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    border-collapse: collapse;
+    width: 500px;
+  }
+
+  .dataframe td, .customers th {
+    border: 1px solid #ddd;
+    padding: 8px 0;
+  }
+
+  .dataframe tr:nth-child(even){background-color: #f2f2f2;}
+
+  .dataframe tr:hover {background-color: #ddd;}
+
+  .dataframe th {
+    text-align: left;
+    background-color: rgb(76, 111, 175);
+    color: white;
   }
   </style>
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
@@ -82,7 +104,98 @@
     <p id="linechart6" style="width: 400px; height: 200px"></p>
     <p id="linechart7" style="width: 400px; height: 200px"></p>
 </div>
-<h2>Đỉnh giá gần nhất</h2>
+<h2 class="collapsible">Đỉnh giá gần nhất</h2>
+<div class="content">
+
+  <table border="1" class="dataframe">
+    <thead>
+      <tr style="text-align: right;">
+        <th>Stock</th>
+        <th>FromDate</th>
+        <th>ToDate</th>
+        <th>MaxDate</th>
+        <th>MaxPrice</th>
+        <th>LatestPrice</th>
+        <th>DiffToMax%</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>VNM</td>
+        <td>2020-07-02</td>
+        <td>2020-11-25</td>
+        <td>2020-09-21</td>
+        <td>130.1</td>
+        <td>110.50</td>
+        <td>-15.07</td>
+      </tr>
+      <tr>
+        <td>TAR</td>
+        <td>2020-09-23</td>
+        <td>2020-11-25</td>
+        <td>2020-10-05</td>
+        <td>22.9</td>
+        <td>20.80</td>
+        <td>-9.17</td>
+      </tr>
+      <tr>
+        <td>FRT</td>
+        <td>2020-10-12</td>
+        <td>2020-11-25</td>
+        <td>2020-10-13</td>
+        <td>23.9</td>
+        <td>22.20</td>
+        <td>-7.11</td>
+      </tr>
+      <tr>
+        <td>HPG</td>
+        <td>2020-06-23</td>
+        <td>2020-11-25</td>
+        <td>2020-11-24</td>
+        <td>37.5</td>
+        <td>35.60</td>
+        <td>-5.07</td>
+      </tr>
+      <tr>
+        <td>NT2</td>
+        <td>2020-09-09</td>
+        <td>2020-11-25</td>
+        <td>2020-09-14</td>
+        <td>24.2</td>
+        <td>23.15</td>
+        <td>-4.34</td>
+      </tr>
+      <tr>
+        <td>MWG</td>
+        <td>2020-11-20</td>
+        <td>2020-11-25</td>
+        <td>2020-11-23</td>
+        <td>113.2</td>
+        <td>112.00</td>
+        <td>-1.06</td>
+      </tr>
+      <tr>
+        <td>VJC</td>
+        <td>2020-08-13</td>
+        <td>2020-11-25</td>
+        <td>2020-11-25</td>
+        <td>119.0</td>
+        <td>119.00</td>
+        <td>0.00</td>
+      </tr>
+      <tr>
+        <td>SSI</td>
+        <td>2020-08-25</td>
+        <td>2020-11-25</td>
+        <td>2020-11-25</td>
+        <td>19.2</td>
+        <td>19.20</td>
+        <td>0.00</td>
+      </tr>
+    </tbody>
+  </table>
+
+</div>
 
 <script>
   var coll = document.getElementsByClassName("collapsible");
