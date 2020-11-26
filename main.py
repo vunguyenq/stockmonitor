@@ -108,12 +108,19 @@ if __name__ == "__main__":
     chart_fromdate = str(df['Date'].min())
     chart_todate = str(df['Date'].max())
     javascript_linechart_data = str(javascript_linechart_data)
+
+    df_monitor = df_monitor.sort_values(by=['DiffToMax%'])
+    df_monitor = df_monitor[['Stock','FromDate','MaxDate','LatestPrice','DiffToMax%']]
+    df_monitor.rename(columns={'LatestPrice': 'Latest','DiffToMax%': 'Diff%'}, inplace=True)
+    nearest_peak_table_html = df_monitor.to_html(index=False)
+
     with open('report_template.html', 'r', encoding="utf8") as file:
         html_report = file.read()
-
+    
     html_report = html_report.replace('|CHART_DATA_PLACEHOLDER|',javascript_linechart_data)\
                             .replace('|CHART_P_TAGS_PLACEHOLDER|',chart_html_p_tags)\
-                            .replace('|CHART_FROM_TO_DATE_PLACEHOLDER|','{} - {}'.format(chart_fromdate,chart_todate))
+                            .replace('|CHART_FROM_TO_DATE_PLACEHOLDER|','{} - {}'.format(chart_fromdate,chart_todate))\
+                            .replace('|NEAREST_PEAK_TABLE_PLACEHOLDER|',nearest_peak_table_html)
 
     with open('stockreport.html', 'w', encoding="utf8") as filetowrite:
         filetowrite.write(html_report)

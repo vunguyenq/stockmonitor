@@ -25,6 +25,29 @@
     overflow: hidden;
     /*background-color: #f1f1f1;*/
   }
+  
+    /*TABLE FORMAT;*/
+    .dataframe {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    border-collapse: collapse;
+    width: 375px;
+  }
+
+  .dataframe td, .customers th {
+    border: 1px solid #ddd;
+    padding: 8px 0;
+  }
+
+  .dataframe tr:nth-child(even){background-color: #f2f2f2;}
+
+  .dataframe tr:hover {background-color: #ddd;}
+
+  .dataframe th {
+    text-align: left;
+    background-color: rgb(76, 111, 175);
+    color: white;
+  }
   </style>
 
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
@@ -79,7 +102,7 @@
 
 <h2 class="collapsible">Đỉnh giá gần nhất</h2>
 <div class="content">
-
+  |NEAREST_PEAK_TABLE_PLACEHOLDER|
 </div>
 
 <script>
