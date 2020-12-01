@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
 <style>
   .collapsible {
     background-color: white;
@@ -24,9 +25,9 @@
     overflow: hidden;
     /*background-color: #f1f1f1;*/
   }
-
-  /*TABLE FORMAT;*/
-  .dataframe {
+  
+    /*TABLE FORMAT;*/
+    .dataframe {
     font-family: Arial, Helvetica, sans-serif;
     font-size: 12px;
     border-collapse: collapse;
@@ -48,13 +49,14 @@
     color: white;
   }
   </style>
+
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script type="text/javascript">
       google.charts.load('current', {'packages':['corechart']});
       google.charts.setOnLoadCallback(drawChart);
 
       function drawChart() {
-        var raw_data = [['HPG', 39, 33, [['Date', 'ClosingPrice'], [-4.0, 34.6], [-3.0, 35.2], [-2.0, 35.7], [-1.0, 37.5], [0.0, 37.5]]], ['VNM', 112, 108, [['Date', 'ClosingPrice'], [-4.0, 109.4], [-3.0, 109.7], [-2.0, 110.9], [-1.0, 110.6], [0.0, 109.6]]], ['FPT', 57, 53, [['Date', 'ClosingPrice'], [-4.0, 54.0], [-3.0, 55.1], [-2.0, 55.2], [-1.0, 55.9], [0.0, 55.6]]], ['FRT', 24, 21, [['Date', 'ClosingPrice'], [-4.0, 22.2], [-3.0, 22.6], [-2.0, 22.7], [-1.0, 22.4], [0.0, 22.4]]], ['PVD', 14, 11, [['Date', 'ClosingPrice'], [-4.0, 12.55], [-3.0, 12.7], [-2.0, 12.65], [-1.0, 12.6], [0.0, 13.0]]], ['SSI', 20, 17, [['Date', 'ClosingPrice'], [-4.0, 18.4], [-3.0, 18.45], [-2.0, 18.2], [-1.0, 18.7], [0.0, 18.95]]], ['NT2', 25, 21, [['Date', 'ClosingPrice'], [-4.0, 23.0], [-3.0, 23.0], [-2.0, 23.0], [-1.0, 22.9], [0.0, 23.25]]], ['TAR', 23, 19, [['Date', 'ClosingPrice'], [-4.0, 20.3], [-3.0, 20.4], [-2.0, 20.5], [-1.0, 21.2], [0.0, 20.8]]]];
+        var raw_data = [['HPG', 39, 34, [['Date', 'ClosingPrice'], [-4.0, 35.7], [-3.0, 37.5], [-2.0, 37.5], [-1.0, 35.6], [0.0, 35.1]]], ['VNM', 112, 108, [['Date', 'ClosingPrice'], [-4.0, 110.9], [-3.0, 110.6], [-2.0, 109.6], [-1.0, 110.5], [0.0, 109.9]]], ['FRT', 24, 21, [['Date', 'ClosingPrice'], [-4.0, 22.7], [-3.0, 22.4], [-2.0, 22.4], [-1.0, 22.2], [0.0, 22.2]]], ['VJC', 122, 117, [['Date', 'ClosingPrice'], [-4.0, 118.9], [-3.0, 118.9], [-2.0, 118.0], [-1.0, 119.0], [0.0, 120.1]]], ['SSI', 21, 17, [['Date', 'ClosingPrice'], [-4.0, 18.2], [-3.0, 18.7], [-2.0, 18.95], [-1.0, 19.2], [0.0, 19.15]]], ['NT2', 25, 21, [['Date', 'ClosingPrice'], [-4.0, 23.0], [-3.0, 22.9], [-2.0, 23.25], [-1.0, 23.15], [0.0, 22.95]]], ['TAR', 23, 19, [['Date', 'ClosingPrice'], [-4.0, 20.5], [-3.0, 21.2], [-2.0, 20.8], [-1.0, 20.8], [0.0, 20.6]]], ['MWG', 115, 109, [['Date', 'ClosingPrice'], [-4.0, 110.8], [-3.0, 113.2], [-2.0, 112.0], [-1.0, 112.0], [0.0, 112.8]]]];
         var i;
         for (i = 0; i < raw_data.length; i++) {
             chart_data = raw_data[i]
@@ -92,91 +94,104 @@
 <body>
 
 <h1> Theo dõi danh mục đầu tư </h1>
+
+<h2 class="collapsible">Giá cổ phiếu trong ngày</h2>
+<div class="content">
+  <p>HPG</p><p><img border="0" src="http://s.cafef.vn/chartindex/pricechart.ashx?symbol=HPG&type=price&date=01/12/2020&width=350&height=200"></p>
+  <p>VNM</p><p><img border="0" src="http://s.cafef.vn/chartindex/pricechart.ashx?symbol=VNM&type=price&date=01/12/2020&width=350&height=200"></p>
+  <p>FRT</p><p><img border="0" src="http://s.cafef.vn/chartindex/pricechart.ashx?symbol=FRT&type=price&date=01/12/2020&width=350&height=200"></p>
+  <p>VJC</p><p><img border="0" src="http://s.cafef.vn/chartindex/pricechart.ashx?symbol=VJC&type=price&date=01/12/2020&width=350&height=200"></p>
+  <p>SSI</p><p><img border="0" src="http://s.cafef.vn/chartindex/pricechart.ashx?symbol=SSI&type=price&date=01/12/2020&width=350&height=200"></p>
+  <p>NT2</p><p><img border="0" src="http://s.cafef.vn/chartindex/pricechart.ashx?symbol=NT2&type=price&date=01/12/2020&width=350&height=200"></p>
+  <p>TAR</p><p><img border="0" src="http://s.cafef.vn/chartindex/pricechart.ashx?symbol=TAR&type=price&date=01/12/2020&width=350&height=200"></p>
+  <p>MWG</p><p><img border="0" src="http://s.cafef.vn/chartindex/pricechart.ashx?symbol=MWG&type=price&date=01/12/2020&width=350&height=200"></p>
+</div>
+
 <h2 class="collapsible">Giá các cổ phiếu 5 ngày gần nhất</h2>
 <div class="content">
-    <p>18/11 - 24/11</p>
-    <p id="linechart0" style="width: 400px; height: 200px"></p>
-    <p id="linechart1" style="width: 400px; height: 200px"></p>
-    <p id="linechart2" style="width: 400px; height: 200px"></p>
-    <p id="linechart3" style="width: 400px; height: 200px"></p>
-    <p id="linechart4" style="width: 400px; height: 200px"></p>
-    <p id="linechart5" style="width: 400px; height: 200px"></p>
-    <p id="linechart6" style="width: 400px; height: 200px"></p>
-    <p id="linechart7" style="width: 400px; height: 200px"></p>
+  <p>20/11 - 26/11</p>
+  <p id="linechart0" style="width: 400px; height: 200px"></p>
+<p id="linechart1" style="width: 400px; height: 200px"></p>
+<p id="linechart2" style="width: 400px; height: 200px"></p>
+<p id="linechart3" style="width: 400px; height: 200px"></p>
+<p id="linechart4" style="width: 400px; height: 200px"></p>
+<p id="linechart5" style="width: 400px; height: 200px"></p>
+<p id="linechart6" style="width: 400px; height: 200px"></p>
+<p id="linechart7" style="width: 400px; height: 200px"></p>
+
 </div>
+
 <h2 class="collapsible">Đỉnh giá gần nhất</h2>
 <div class="content">
-
   <table border="1" class="dataframe">
-    <thead>
-      <tr style="text-align: right;"> 
-        <th>Stock</th>
-        <th>FromDate</th>
-        <th>MaxDate</th>
-        <th>Latest</th>
-        <th>Diff%</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>VNM</td>
-        <td>2020-07-02</td>
-        <td>2020-09-21</td>
-        <td>109.90</td>
-        <td>-15.53</td>
-      </tr>
-      <tr>
-        <td>TAR</td>
-        <td>2020-09-23</td>
-        <td>2020-10-05</td>
-        <td>20.60</td>
-        <td>-10.04</td>
-      </tr>
-      <tr>
-        <td>FRT</td>
-        <td>2020-10-12</td>
-        <td>2020-10-13</td>
-        <td>22.20</td>
-        <td>-7.11</td>
-      </tr>
-      <tr>
-        <td>HPG</td>
-        <td>2020-06-23</td>
-        <td>2020-11-24</td>
-        <td>35.10</td>
-        <td>-6.40</td>
-      </tr>
-      <tr>
-        <td>NT2</td>
-        <td>2020-09-09</td>
-        <td>2020-09-14</td>
-        <td>22.95</td>
-        <td>-5.17</td>
-      </tr>
-      <tr>
-        <td>MWG</td>
-        <td>2020-11-20</td>
-        <td>2020-11-23</td>
-        <td>112.80</td>
-        <td>-0.35</td>
-      </tr>
-      <tr>
-        <td>SSI</td>
-        <td>2020-08-25</td>
-        <td>2020-11-25</td>
-        <td>19.15</td>
-        <td>-0.26</td>
-      </tr>
-      <tr>
-        <td>VJC</td>
-        <td>2020-08-13</td>
-        <td>2020-11-26</td>
-        <td>120.10</td>
-        <td>0.00</td>
-      </tr>
-    </tbody>
-  </table>
-
+  <thead>
+    <tr style="text-align: right;">
+      <th>Stock</th>
+      <th>FromDate</th>
+      <th>MaxDate</th>
+      <th>Latest</th>
+      <th>Diff%</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>VNM</td>
+      <td>2020-07-02</td>
+      <td>2020-09-21</td>
+      <td>109.90</td>
+      <td>-15.53</td>
+    </tr>
+    <tr>
+      <td>TAR</td>
+      <td>2020-09-23</td>
+      <td>2020-10-05</td>
+      <td>20.60</td>
+      <td>-10.04</td>
+    </tr>
+    <tr>
+      <td>FRT</td>
+      <td>2020-10-12</td>
+      <td>2020-10-13</td>
+      <td>22.20</td>
+      <td>-7.11</td>
+    </tr>
+    <tr>
+      <td>HPG</td>
+      <td>2020-06-23</td>
+      <td>2020-11-24</td>
+      <td>35.10</td>
+      <td>-6.40</td>
+    </tr>
+    <tr>
+      <td>NT2</td>
+      <td>2020-09-09</td>
+      <td>2020-09-14</td>
+      <td>22.95</td>
+      <td>-5.17</td>
+    </tr>
+    <tr>
+      <td>MWG</td>
+      <td>2020-11-20</td>
+      <td>2020-11-23</td>
+      <td>112.80</td>
+      <td>-0.35</td>
+    </tr>
+    <tr>
+      <td>SSI</td>
+      <td>2020-08-25</td>
+      <td>2020-11-25</td>
+      <td>19.15</td>
+      <td>-0.26</td>
+    </tr>
+    <tr>
+      <td>VJC</td>
+      <td>2020-08-13</td>
+      <td>2020-11-26</td>
+      <td>120.10</td>
+      <td>0.00</td>
+    </tr>
+  </tbody>
+</table>
 </div>
 
 <script>
@@ -195,6 +210,6 @@
     });
   }
   </script>
-  
+
 </body>
 </html>
