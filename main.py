@@ -78,11 +78,13 @@ if __name__ == "__main__":
     i=0
     # Filter stocks that are marked to track 5 days 
     df_stocks_5days = df_stocks[df_stocks['Track5Days'].apply(lambda x: len(str(x)) > 0)]
+    chart_fromdate, chart_todate = 0, 0
     for _, row in df_stocks_5days.iterrows():
         stock = row['Stock']
         df = df_latestdays[df_latestdays['Stock'] == stock]
         df = df.sort_values(by=['Date'], ascending = True)
-        df['Date'] = df["Date"].dt.strftime("%d/%m")
+        df['Date_datetime'] = df['Date'] # duplicate Date column before converting to string to keep datetime format
+        df['Date'] = df['Date'].dt.strftime("%d/%m") # Convert Date to string
         print('Updating latest 5 days for {}...'.format(stock))
         from_cell = 'A' + str(start_row)
         to_cell = 'B'+ str(start_row + 6)
@@ -97,27 +99,54 @@ if __name__ == "__main__":
 
         start_row += 8
 
-        # Generate date for HTML report
+        # Generate data for HTML report
         df_chartdata = df[['Date','ClosingPrice']]
         df_chartdata['Date'] = list(range(max(-len(df_chartdata)+1, -N_LAST_DAYS+1),1))
         javascript_linechart_data.append([stock, max_y, min_y, [df_chartdata.columns.values.tolist()] + df_chartdata.values.tolist()])
         chart_html_p_tags += '<p id="linechart{}" style="width: 400px; height: 200px"></p>\n'.format(i)
+
+        if(chart_fromdate == 0): # 1st stock symbol
+            chart_fromdate = df['Date_datetime'].min()
+            chart_todate = df['Date_datetime'].max()
+        else: # 2nd symbol forward
+            chart_fromdate = min(chart_fromdate,df['Date_datetime'].min())
+            chart_todate = max(chart_todate,df['Date_datetime'].max())
+
         i+=1
     
     # Create html report from template
-    chart_fromdate = str(df['Date'].min())
-    chart_todate = str(df['Date'].max())
+    print('Creating HTML report...')
+    # 1. Biến động giá trong phiên gần nhất
+    #<img border="0" src="http://s.cafef.vn/chartindex/pricechart.ashx?symbol=VNM&type=price&date=01/12/2020&width=350&height=200">
+    CURRENT_PRICE_IMG = '<p>{}</p><p><img border="0" src="http://s.cafef.vn/chartindex/pricechart.ashx?symbol={}&type=price&date={}&width=350&height=200"></p>\n'
+    today = datetime.date.today() 
+    # If today is weekend, take last Friday
+    if(today.weekday() > 4):
+        offset = today.weekday() - 4
+        timedelta = datetime.timedelta(offset)
+        today = today - timedelta
+    today = today.strftime('%d/%m/%Y')
+    chart_current_price_tags = '<p>Phiên giao dịch gần nhất: {}</p>\n'.format(today)
+    for stock in df_stocks['Stock']:
+        chart_current_price_tags += CURRENT_PRICE_IMG.format(stock,stock,today)
+
+    # 2. Giá cổ phiếu 5 ngày gần nhất
+    chart_fromdate = chart_fromdate.strftime('%d/%m/%Y')
+    chart_todate = chart_todate.strftime('%d/%m/%Y')
     javascript_linechart_data = str(javascript_linechart_data)
 
     df_monitor = df_monitor.sort_values(by=['DiffToMax%'])
     df_monitor = df_monitor[['Stock','FromDate','MaxDate','LatestPrice','DiffToMax%']]
     df_monitor.rename(columns={'LatestPrice': 'Latest','DiffToMax%': 'Diff%'}, inplace=True)
+
+    # 3. Đỉnh giá gần nhất (nearest peak)
     nearest_peak_table_html = df_monitor.to_html(index=False)
 
     with open('report_template.html', 'r', encoding="utf8") as file:
         html_report = file.read()
     
     html_report = html_report.replace('|CHART_DATA_PLACEHOLDER|',javascript_linechart_data)\
+                            .replace('|CURRENT_PRICE_CHARTS_PLACEHOLDER|',chart_current_price_tags)\
                             .replace('|CHART_P_TAGS_PLACEHOLDER|',chart_html_p_tags)\
                             .replace('|CHART_FROM_TO_DATE_PLACEHOLDER|','{} - {}'.format(chart_fromdate,chart_todate))\
                             .replace('|NEAREST_PEAK_TABLE_PLACEHOLDER|',nearest_peak_table_html)

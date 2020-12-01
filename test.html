@@ -56,7 +56,7 @@
       google.charts.setOnLoadCallback(drawChart);
 
       function drawChart() {
-        var raw_data = [['HPG', 39, 34, [['Date', 'ClosingPrice'], [-4.0, 35.7], [-3.0, 37.5], [-2.0, 37.5], [-1.0, 35.6], [0.0, 35.1]]], ['VNM', 112, 108, [['Date', 'ClosingPrice'], [-4.0, 110.9], [-3.0, 110.6], [-2.0, 109.6], [-1.0, 110.5], [0.0, 109.9]]], ['FRT', 24, 21, [['Date', 'ClosingPrice'], [-4.0, 22.7], [-3.0, 22.4], [-2.0, 22.4], [-1.0, 22.2], [0.0, 22.2]]], ['VJC', 122, 117, [['Date', 'ClosingPrice'], [-4.0, 118.9], [-3.0, 118.9], [-2.0, 118.0], [-1.0, 119.0], [0.0, 120.1]]], ['SSI', 21, 17, [['Date', 'ClosingPrice'], [-4.0, 18.2], [-3.0, 18.7], [-2.0, 18.95], [-1.0, 19.2], [0.0, 19.15]]], ['NT2', 25, 21, [['Date', 'ClosingPrice'], [-4.0, 23.0], [-3.0, 22.9], [-2.0, 23.25], [-1.0, 23.15], [0.0, 22.95]]], ['TAR', 23, 19, [['Date', 'ClosingPrice'], [-4.0, 20.5], [-3.0, 21.2], [-2.0, 20.8], [-1.0, 20.8], [0.0, 20.6]]], ['MWG', 115, 109, [['Date', 'ClosingPrice'], [-4.0, 110.8], [-3.0, 113.2], [-2.0, 112.0], [-1.0, 112.0], [0.0, 112.8]]]];
+        var raw_data = [['HPG', 38, 34, [['Date', 'ClosingPrice'], [-4.0, 35.6], [-3.0, 35.1], [-2.0, 36.25], [-1.0, 35.5], [0.0, 35.6]]], ['VNM', 112, 107, [['Date', 'ClosingPrice'], [-4.0, 110.5], [-3.0, 109.9], [-2.0, 109.8], [-1.0, 108.2], [0.0, 109.7]]], ['FRT', 26, 21, [['Date', 'ClosingPrice'], [-4.0, 22.2], [-3.0, 22.2], [-2.0, 22.2], [-1.0, 23.75], [0.0, 24.3]]], ['VJC', 122, 116, [['Date', 'ClosingPrice'], [-4.0, 119.0], [-3.0, 120.1], [-2.0, 119.0], [-1.0, 117.5], [0.0, 118.0]]], ['SSI', 21, 18, [['Date', 'ClosingPrice'], [-4.0, 19.2], [-3.0, 19.15], [-2.0, 19.35], [-1.0, 19.25], [0.0, 19.4]]], ['NT2', 25, 21, [['Date', 'ClosingPrice'], [-4.0, 23.15], [-3.0, 22.95], [-2.0, 22.7], [-1.0, 22.8], [0.0, 22.65]]], ['TAR', 22, 19, [['Date', 'ClosingPrice'], [-4.0, 20.8], [-3.0, 20.6], [-2.0, 20.6], [-1.0, 20.3], [0.0, 20.1]]], ['MWG', 117, 111, [['Date', 'ClosingPrice'], [-4.0, 112.0], [-3.0, 112.8], [-2.0, 115.5], [-1.0, 116.0], [0.0, 116.0]]]];
         var i;
         for (i = 0; i < raw_data.length; i++) {
             chart_data = raw_data[i]
@@ -95,21 +95,23 @@
 
 <h1> Theo dõi danh mục đầu tư </h1>
 
-<h2 class="collapsible">Giá cổ phiếu trong ngày</h2>
+<h2 class="collapsible">Biến động giá cổ phiếu trong phiên</h2>
 <div class="content">
-  <p>HPG</p><p><img border="0" src="http://s.cafef.vn/chartindex/pricechart.ashx?symbol=HPG&type=price&date=01/12/2020&width=350&height=200"></p>
-  <p>VNM</p><p><img border="0" src="http://s.cafef.vn/chartindex/pricechart.ashx?symbol=VNM&type=price&date=01/12/2020&width=350&height=200"></p>
-  <p>FRT</p><p><img border="0" src="http://s.cafef.vn/chartindex/pricechart.ashx?symbol=FRT&type=price&date=01/12/2020&width=350&height=200"></p>
-  <p>VJC</p><p><img border="0" src="http://s.cafef.vn/chartindex/pricechart.ashx?symbol=VJC&type=price&date=01/12/2020&width=350&height=200"></p>
-  <p>SSI</p><p><img border="0" src="http://s.cafef.vn/chartindex/pricechart.ashx?symbol=SSI&type=price&date=01/12/2020&width=350&height=200"></p>
-  <p>NT2</p><p><img border="0" src="http://s.cafef.vn/chartindex/pricechart.ashx?symbol=NT2&type=price&date=01/12/2020&width=350&height=200"></p>
-  <p>TAR</p><p><img border="0" src="http://s.cafef.vn/chartindex/pricechart.ashx?symbol=TAR&type=price&date=01/12/2020&width=350&height=200"></p>
-  <p>MWG</p><p><img border="0" src="http://s.cafef.vn/chartindex/pricechart.ashx?symbol=MWG&type=price&date=01/12/2020&width=350&height=200"></p>
+  <p>Phiên giao dịch gần nhất: 01/12/2020</p>
+<p>HPG</p><p><img border="0" src="http://s.cafef.vn/chartindex/pricechart.ashx?symbol=HPG&type=price&date=01/12/2020&width=350&height=200"></p>
+<p>VNM</p><p><img border="0" src="http://s.cafef.vn/chartindex/pricechart.ashx?symbol=VNM&type=price&date=01/12/2020&width=350&height=200"></p>
+<p>FRT</p><p><img border="0" src="http://s.cafef.vn/chartindex/pricechart.ashx?symbol=FRT&type=price&date=01/12/2020&width=350&height=200"></p>
+<p>VJC</p><p><img border="0" src="http://s.cafef.vn/chartindex/pricechart.ashx?symbol=VJC&type=price&date=01/12/2020&width=350&height=200"></p>
+<p>SSI</p><p><img border="0" src="http://s.cafef.vn/chartindex/pricechart.ashx?symbol=SSI&type=price&date=01/12/2020&width=350&height=200"></p>
+<p>NT2</p><p><img border="0" src="http://s.cafef.vn/chartindex/pricechart.ashx?symbol=NT2&type=price&date=01/12/2020&width=350&height=200"></p>
+<p>TAR</p><p><img border="0" src="http://s.cafef.vn/chartindex/pricechart.ashx?symbol=TAR&type=price&date=01/12/2020&width=350&height=200"></p>
+<p>MWG</p><p><img border="0" src="http://s.cafef.vn/chartindex/pricechart.ashx?symbol=MWG&type=price&date=01/12/2020&width=350&height=200"></p>
+
 </div>
 
 <h2 class="collapsible">Giá các cổ phiếu 5 ngày gần nhất</h2>
 <div class="content">
-  <p>20/11 - 26/11</p>
+  <p>01/12 - 30/11</p>
   <p id="linechart0" style="width: 400px; height: 200px"></p>
 <p id="linechart1" style="width: 400px; height: 200px"></p>
 <p id="linechart2" style="width: 400px; height: 200px"></p>
@@ -137,57 +139,57 @@
     <tr>
       <td>VNM</td>
       <td>2020-07-02</td>
-      <td>2020-09-21</td>
-      <td>109.90</td>
-      <td>-15.53</td>
+      <td>21/09/2020</td>
+      <td>109.70</td>
+      <td>-15.68</td>
     </tr>
     <tr>
       <td>TAR</td>
       <td>2020-09-23</td>
-      <td>2020-10-05</td>
-      <td>20.60</td>
-      <td>-10.04</td>
-    </tr>
-    <tr>
-      <td>FRT</td>
-      <td>2020-10-12</td>
-      <td>2020-10-13</td>
-      <td>22.20</td>
-      <td>-7.11</td>
-    </tr>
-    <tr>
-      <td>HPG</td>
-      <td>2020-06-23</td>
-      <td>2020-11-24</td>
-      <td>35.10</td>
-      <td>-6.40</td>
+      <td>05/10/2020</td>
+      <td>20.10</td>
+      <td>-12.23</td>
     </tr>
     <tr>
       <td>NT2</td>
       <td>2020-09-09</td>
-      <td>2020-09-14</td>
-      <td>22.95</td>
-      <td>-5.17</td>
+      <td>14/09/2020</td>
+      <td>22.65</td>
+      <td>-6.40</td>
     </tr>
     <tr>
-      <td>MWG</td>
-      <td>2020-11-20</td>
-      <td>2020-11-23</td>
-      <td>112.80</td>
-      <td>-0.35</td>
-    </tr>
-    <tr>
-      <td>SSI</td>
-      <td>2020-08-25</td>
-      <td>2020-11-25</td>
-      <td>19.15</td>
-      <td>-0.26</td>
+      <td>HPG</td>
+      <td>2020-06-23</td>
+      <td>24/11/2020</td>
+      <td>35.60</td>
+      <td>-5.07</td>
     </tr>
     <tr>
       <td>VJC</td>
       <td>2020-08-13</td>
-      <td>2020-11-26</td>
-      <td>120.10</td>
+      <td>26/11/2020</td>
+      <td>118.00</td>
+      <td>-1.75</td>
+    </tr>
+    <tr>
+      <td>FRT</td>
+      <td>2020-10-12</td>
+      <td>01/12/2020</td>
+      <td>24.30</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <td>SSI</td>
+      <td>2020-08-25</td>
+      <td>01/12/2020</td>
+      <td>19.40</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <td>MWG</td>
+      <td>2020-11-20</td>
+      <td>01/12/2020</td>
+      <td>116.00</td>
       <td>0.00</td>
     </tr>
   </tbody>
