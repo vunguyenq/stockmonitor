@@ -1,15 +1,9 @@
-Wed Dec  2 08:30:04 UTC 2020
+Wed Dec  2 14:47:17 UTC 2020
 ------------------------
 Configure github...
 ------------------------
 Pulling from Github repository...
-Updating 23d70a9..85baffb
-Fast-forward
- main.py              |  37 +++++++++--
- report_template.html |   6 ++
- stockreport.html     |  17 ++++-
- test.html            | 185 ++++++++++++++++++++++++++++-----------------------
- 4 files changed, 156 insertions(+), 89 deletions(-)
+Already up-to-date.
 ------------------------
 Running Python script...
 Loading stock HPG from date 2020-06-23 to date 2020-12-02 ...
@@ -31,4 +25,4 @@ Updating latest 5 days for MWG...
 Creating HTML report...
 ------------------------
 Commit and push job results...
-Wed Dec  2 08:31:14 UTC 2020
+Wed Dec  2 14:48:33 UTC 2020
