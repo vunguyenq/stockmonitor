@@ -136,8 +136,8 @@ if __name__ == "__main__":
     javascript_linechart_data = str(javascript_linechart_data)
 
     df_monitor = df_monitor.sort_values(by=['DiffToMax%'])
-    df_monitor = df_monitor[['Stock','FromDate','MaxDate','LatestPrice','DiffToMax%']]
-    df_monitor.rename(columns={'LatestPrice': 'Latest','DiffToMax%': 'Diff%'}, inplace=True)
+    df_monitor = df_monitor[['Stock','FromDate','MaxDate','MaxPrice','DiffToMax%']]
+    df_monitor.rename(columns={'DiffToMax%': 'Diff%'}, inplace=True)
 
     # 3. Đỉnh giá gần nhất (nearest peak)
     nearest_peak_table_html = df_monitor.to_html(index=False)
