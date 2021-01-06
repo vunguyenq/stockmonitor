@@ -56,7 +56,7 @@
       google.charts.setOnLoadCallback(drawChart);
 
       function drawChart() {
-        var raw_data = [['HPG', 44, 39, [['Date', 'ClosingPrice'], [-4.0, 41.6], [-3.0, 40.9], [-2.0, 41.45], [-1.0, 42.3], [0.0, 42.35]]], ['VNM', 112, 107, [['Date', 'ClosingPrice'], [-4.0, 109.2], [-3.0, 108.8], [-2.0, 108.8], [-1.0, 109.3], [0.0, 110.8]]], ['VJC', 127, 123, [['Date', 'ClosingPrice'], [-4.0, 125.6], [-3.0, 124.5], [-2.0, 125.0], [-1.0, 125.8], [0.0, 124.8]]], ['SSI', 35, 30, [['Date', 'ClosingPrice'], [-4.0, 31.7], [-3.0, 31.5], [-2.0, 33.1], [-1.0, 33.8], [0.0, 33.75]]], ['NT2', 26, 23, [['Date', 'ClosingPrice'], [-4.0, 24.5], [-3.0, 24.45], [-2.0, 24.6], [-1.0, 24.85], [0.0, 24.65]]], ['TAR', 26, 22, [['Date', 'ClosingPrice'], [-4.0, 24.1], [-3.0, 23.7], [-2.0, 23.8], [-1.0, 24.1], [0.0, 23.9]]], ['MWG', 123, 116, [['Date', 'ClosingPrice'], [-4.0, 117.2], [-3.0, 117.3], [-2.0, 118.9], [-1.0, 120.6], [0.0, 121.9]]], ['FPT', 64, 57, [['Date', 'ClosingPrice'], [-4.0, 58.6], [-3.0, 58.1], [-2.0, 59.1], [-1.0, 60.2], [0.0, 62.7]]], ['CTG', 37, 33, [['Date', 'ClosingPrice'], [-4.0, 34.15], [-3.0, 34.35], [-2.0, 34.55], [-1.0, 35.5], [0.0, 35.4]]]];
+        var raw_data = [['HPG', 44, 39, [['Date', 'ClosingPrice'], [-4.0, 40.9], [-3.0, 41.45], [-2.0, 42.3], [-1.0, 42.35], [0.0, 42.35]]], ['VNM', 112, 107, [['Date', 'ClosingPrice'], [-4.0, 108.8], [-3.0, 108.8], [-2.0, 109.3], [-1.0, 110.8], [0.0, 110.8]]], ['VJC', 127, 123, [['Date', 'ClosingPrice'], [-4.0, 124.5], [-3.0, 125.0], [-2.0, 125.8], [-1.0, 124.8], [0.0, 124.8]]], ['SSI', 35, 30, [['Date', 'ClosingPrice'], [-4.0, 31.5], [-3.0, 33.1], [-2.0, 33.8], [-1.0, 33.75], [0.0, 33.75]]], ['NT2', 26, 23, [['Date', 'ClosingPrice'], [-4.0, 24.45], [-3.0, 24.6], [-2.0, 24.85], [-1.0, 24.65], [0.0, 24.65]]], ['TAR', 26, 22, [['Date', 'ClosingPrice'], [-4.0, 23.7], [-3.0, 23.8], [-2.0, 24.1], [-1.0, 23.9], [0.0, 24.3]]], ['MWG', 123, 116, [['Date', 'ClosingPrice'], [-4.0, 117.3], [-3.0, 118.9], [-2.0, 120.6], [-1.0, 121.9], [0.0, 121.9]]], ['FPT', 64, 57, [['Date', 'ClosingPrice'], [-4.0, 58.1], [-3.0, 59.1], [-2.0, 60.2], [-1.0, 62.7], [0.0, 62.7]]], ['CTG', 37, 33, [['Date', 'ClosingPrice'], [-4.0, 34.35], [-3.0, 34.55], [-2.0, 35.5], [-1.0, 35.4], [0.0, 35.4]]]];
         var i;
         for (i = 0; i < raw_data.length; i++) {
             chart_data = raw_data[i]
@@ -97,22 +97,22 @@
 
 <h2 class="collapsible">Biến động giá cổ phiếu trong phiên</h2>
 <div class="content">
-  <p>Phiên giao dịch gần nhất: 05/01/2021</p>
-<p>HPG</p><p><img border="0" src="http://s.cafef.vn/chartindex/pricechart.ashx?symbol=HPG&type=price&date=05/01/2021&width=350&height=200"></p>
-<p>VNM</p><p><img border="0" src="http://s.cafef.vn/chartindex/pricechart.ashx?symbol=VNM&type=price&date=05/01/2021&width=350&height=200"></p>
-<p>VJC</p><p><img border="0" src="http://s.cafef.vn/chartindex/pricechart.ashx?symbol=VJC&type=price&date=05/01/2021&width=350&height=200"></p>
-<p>SSI</p><p><img border="0" src="http://s.cafef.vn/chartindex/pricechart.ashx?symbol=SSI&type=price&date=05/01/2021&width=350&height=200"></p>
-<p>NT2</p><p><img border="0" src="http://s.cafef.vn/chartindex/pricechart.ashx?symbol=NT2&type=price&date=05/01/2021&width=350&height=200"></p>
-<p>TAR</p><p><img border="0" src="http://s.cafef.vn/chartindex/pricechart.ashx?symbol=TAR&type=price&date=05/01/2021&width=350&height=200"></p>
-<p>MWG</p><p><img border="0" src="http://s.cafef.vn/chartindex/pricechart.ashx?symbol=MWG&type=price&date=05/01/2021&width=350&height=200"></p>
-<p>FPT</p><p><img border="0" src="http://s.cafef.vn/chartindex/pricechart.ashx?symbol=FPT&type=price&date=05/01/2021&width=350&height=200"></p>
-<p>CTG</p><p><img border="0" src="http://s.cafef.vn/chartindex/pricechart.ashx?symbol=CTG&type=price&date=05/01/2021&width=350&height=200"></p>
+  <p>Phiên giao dịch gần nhất: 06/01/2021</p>
+<p>HPG</p><p><img border="0" src="http://s.cafef.vn/chartindex/pricechart.ashx?symbol=HPG&type=price&date=06/01/2021&width=350&height=200"></p>
+<p>VNM</p><p><img border="0" src="http://s.cafef.vn/chartindex/pricechart.ashx?symbol=VNM&type=price&date=06/01/2021&width=350&height=200"></p>
+<p>VJC</p><p><img border="0" src="http://s.cafef.vn/chartindex/pricechart.ashx?symbol=VJC&type=price&date=06/01/2021&width=350&height=200"></p>
+<p>SSI</p><p><img border="0" src="http://s.cafef.vn/chartindex/pricechart.ashx?symbol=SSI&type=price&date=06/01/2021&width=350&height=200"></p>
+<p>NT2</p><p><img border="0" src="http://s.cafef.vn/chartindex/pricechart.ashx?symbol=NT2&type=price&date=06/01/2021&width=350&height=200"></p>
+<p>TAR</p><p><img border="0" src="http://s.cafef.vn/chartindex/pricechart.ashx?symbol=TAR&type=price&date=06/01/2021&width=350&height=200"></p>
+<p>MWG</p><p><img border="0" src="http://s.cafef.vn/chartindex/pricechart.ashx?symbol=MWG&type=price&date=06/01/2021&width=350&height=200"></p>
+<p>FPT</p><p><img border="0" src="http://s.cafef.vn/chartindex/pricechart.ashx?symbol=FPT&type=price&date=06/01/2021&width=350&height=200"></p>
+<p>CTG</p><p><img border="0" src="http://s.cafef.vn/chartindex/pricechart.ashx?symbol=CTG&type=price&date=06/01/2021&width=350&height=200"></p>
 
 </div>
 
 <h2 class="collapsible">Giá các cổ phiếu 5 ngày gần nhất</h2>
 <div class="content">
-  <p>29/12/2020 - 05/01/2021</p>
+  <p>30/12/2020 - 06/01/2021</p>
   <p id="linechart0" style="width: 400px; height: 200px"></p>
 <p id="linechart1" style="width: 400px; height: 200px"></p>
 <p id="linechart2" style="width: 400px; height: 200px"></p>
@@ -160,13 +160,6 @@
       <td>-1.79</td>
     </tr>
     <tr>
-      <td>TAR</td>
-      <td>2020-09-23</td>
-      <td>28/12/2020</td>
-      <td>24.20</td>
-      <td>-1.24</td>
-    </tr>
-    <tr>
       <td>CTG</td>
       <td>2020-12-24</td>
       <td>04/01/2021</td>
@@ -183,21 +176,28 @@
     <tr>
       <td>HPG</td>
       <td>2020-06-23</td>
-      <td>05/01/2021</td>
+      <td>06/01/2021</td>
       <td>42.35</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <td>TAR</td>
+      <td>2020-09-23</td>
+      <td>06/01/2021</td>
+      <td>24.30</td>
       <td>0.00</td>
     </tr>
     <tr>
       <td>MWG</td>
       <td>2020-11-20</td>
-      <td>05/01/2021</td>
+      <td>06/01/2021</td>
       <td>121.90</td>
       <td>0.00</td>
     </tr>
     <tr>
       <td>FPT</td>
       <td>2020-12-03</td>
-      <td>05/01/2021</td>
+      <td>06/01/2021</td>
       <td>62.70</td>
       <td>0.00</td>
     </tr>
