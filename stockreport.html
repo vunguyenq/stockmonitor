@@ -56,7 +56,7 @@
       google.charts.setOnLoadCallback(drawChart);
 
       function drawChart() {
-        var raw_data = [['HPG', 51, 47, [['Date', 'ClosingPrice'], [-4.0, 48.5], [-3.0, 49.05], [-2.0, 49.3], [-1.0, 49.4], [0.0, 49.4]]], ['VNM', 104, 99, [['Date', 'ClosingPrice'], [-4.0, 101.0], [-3.0, 102.7], [-2.0, 102.6], [-1.0, 101.5], [0.0, 100.2]]], ['VJC', 134, 131, [['Date', 'ClosingPrice'], [-4.0, 132.5], [-3.0, 132.3], [-2.0, 132.3], [-1.0, 133.0], [0.0, 133.0]]], ['SSI', 37, 32, [['Date', 'ClosingPrice'], [-4.0, 33.95], [-3.0, 34.3], [-2.0, 35.0], [-1.0, 35.0], [0.0, 35.35]]], ['NT2', 24, 21, [['Date', 'ClosingPrice'], [-4.0, 22.6], [-3.0, 22.6], [-2.0, 22.5], [-1.0, 22.35], [0.0, 22.4]]], ['FPT', 81, 78, [['Date', 'ClosingPrice'], [-4.0, 79.7], [-3.0, 79.8], [-2.0, 79.6], [-1.0, 79.4], [0.0, 79.6]]]];
+        var raw_data = [['HPG', 51, 48, [['Date', 'ClosingPrice'], [-4.0, 49.05], [-3.0, 49.3], [-2.0, 49.4], [-1.0, 49.45], [0.0, 49.45]]], ['VNM', 104, 99, [['Date', 'ClosingPrice'], [-4.0, 102.7], [-3.0, 102.6], [-2.0, 101.5], [-1.0, 100.1], [0.0, 100.1]]], ['VJC', 134, 131, [['Date', 'ClosingPrice'], [-4.0, 132.3], [-3.0, 132.3], [-2.0, 133.0], [-1.0, 133.0], [0.0, 133.0]]], ['SSI', 37, 33, [['Date', 'ClosingPrice'], [-4.0, 34.3], [-3.0, 35.0], [-2.0, 35.0], [-1.0, 35.35], [0.0, 35.35]]], ['NT2', 24, 21, [['Date', 'ClosingPrice'], [-4.0, 22.6], [-3.0, 22.5], [-2.0, 22.35], [-1.0, 22.4], [0.0, 22.4]]], ['FPT', 81, 78, [['Date', 'ClosingPrice'], [-4.0, 79.8], [-3.0, 79.6], [-2.0, 79.4], [-1.0, 79.6], [0.0, 79.6]]]];
         var i;
         for (i = 0; i < raw_data.length; i++) {
             chart_data = raw_data[i]
@@ -97,19 +97,19 @@
 
 <h2 class="collapsible">Biến động giá cổ phiếu trong phiên</h2>
 <div class="content">
-  <p>Phiên giao dịch gần nhất: 07/04/2021</p>
-<p>HPG</p><p><img border="0" src="http://s.cafef.vn/chartindex/pricechart.ashx?symbol=HPG&type=price&date=07/04/2021&width=350&height=200"></p>
-<p>VNM</p><p><img border="0" src="http://s.cafef.vn/chartindex/pricechart.ashx?symbol=VNM&type=price&date=07/04/2021&width=350&height=200"></p>
-<p>VJC</p><p><img border="0" src="http://s.cafef.vn/chartindex/pricechart.ashx?symbol=VJC&type=price&date=07/04/2021&width=350&height=200"></p>
-<p>SSI</p><p><img border="0" src="http://s.cafef.vn/chartindex/pricechart.ashx?symbol=SSI&type=price&date=07/04/2021&width=350&height=200"></p>
-<p>NT2</p><p><img border="0" src="http://s.cafef.vn/chartindex/pricechart.ashx?symbol=NT2&type=price&date=07/04/2021&width=350&height=200"></p>
-<p>FPT</p><p><img border="0" src="http://s.cafef.vn/chartindex/pricechart.ashx?symbol=FPT&type=price&date=07/04/2021&width=350&height=200"></p>
+  <p>Phiên giao dịch gần nhất: 08/04/2021</p>
+<p>HPG</p><p><img border="0" src="http://s.cafef.vn/chartindex/pricechart.ashx?symbol=HPG&type=price&date=08/04/2021&width=350&height=200"></p>
+<p>VNM</p><p><img border="0" src="http://s.cafef.vn/chartindex/pricechart.ashx?symbol=VNM&type=price&date=08/04/2021&width=350&height=200"></p>
+<p>VJC</p><p><img border="0" src="http://s.cafef.vn/chartindex/pricechart.ashx?symbol=VJC&type=price&date=08/04/2021&width=350&height=200"></p>
+<p>SSI</p><p><img border="0" src="http://s.cafef.vn/chartindex/pricechart.ashx?symbol=SSI&type=price&date=08/04/2021&width=350&height=200"></p>
+<p>NT2</p><p><img border="0" src="http://s.cafef.vn/chartindex/pricechart.ashx?symbol=NT2&type=price&date=08/04/2021&width=350&height=200"></p>
+<p>FPT</p><p><img border="0" src="http://s.cafef.vn/chartindex/pricechart.ashx?symbol=FPT&type=price&date=08/04/2021&width=350&height=200"></p>
 
 </div>
 
 <h2 class="collapsible">Giá các cổ phiếu 5 ngày gần nhất</h2>
 <div class="content">
-  <p>01/04/2021 - 07/04/2021</p>
+  <p>02/04/2021 - 08/04/2021</p>
   <p id="linechart0" style="width: 400px; height: 200px"></p>
 <p id="linechart1" style="width: 400px; height: 200px"></p>
 <p id="linechart2" style="width: 400px; height: 200px"></p>
@@ -137,7 +137,7 @@
       <td>2020-07-02</td>
       <td>21/09/2020</td>
       <td>130.10</td>
-      <td>-22.98</td>
+      <td>-23.06</td>
     </tr>
     <tr>
       <td>NT2</td>
@@ -170,8 +170,8 @@
     <tr>
       <td>HPG</td>
       <td>2020-06-23</td>
-      <td>07/04/2021</td>
-      <td>49.40</td>
+      <td>08/04/2021</td>
+      <td>49.45</td>
       <td>0.00</td>
     </tr>
   </tbody>
