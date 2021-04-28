@@ -1,0 +1,35 @@
+/* Tinos Regular */
+@font-face {
+font-family: 'Tinos';
+font-style: normal;
+font-weight: 400;
+font-display: swap;
+src: url(https://your-web-server.com/fonts/tinos/Tinos-Regular.ttf) format('truetype');
+}
+
+/* Tinos Italic */
+@font-face {
+font-family: 'Tinos';
+font-style: italic;
+font-weight: 400;
+font-display: swap;
+src: url(https://your-web-server.com/fonts/tinos/Tinos-Italic.ttf) format('truetype');
+}
+
+/* Tinos Bold */
+@font-face {
+font-family: 'Tinos';
+font-style: normal;
+font-weight: 700;
+font-display: swap;
+src: url(https://your-web-server.com/fonts/tinos/Tinos-Bold.ttf) format('truetype');
+}
+
+/* Tinos Bold Italic */
+@font-face {
+font-family: 'Tinos';
+font-style: italic;
+font-weight: 700;
+font-display: swap;
+src: url(https://your-web-server.com/fonts/tinos/Tinos-BoldItalic.ttf) format('truetype');
+}
